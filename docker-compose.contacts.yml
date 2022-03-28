@@ -19,6 +19,7 @@ services:
   db:
     image: 'mysql'
     environment:
+      - MYSQL_DATABASE=monica
       - MYSQL_PASSWORD=${DB_PASS}
       - MYSQL_USER=${DB_USER}
       - MYSQL_RANDOM_ROOT_PASSWORD=true
