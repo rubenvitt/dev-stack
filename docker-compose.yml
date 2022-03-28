@@ -1,5 +1,7 @@
 version: '3'
 services:
+  server:
+    image: nginx
   db:
     image: postgres
     environment:
