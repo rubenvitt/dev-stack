@@ -13,6 +13,8 @@ services:
       - DB_PORT=3306
       - DB_USERNAME=${DB_USER}
       - MAPBOX_API_KEY=${MAPBOX_KEY}
+    ports:
+      - '${PORT}:8080'
     restart: always
     volumes:
       - app_uploads:/var/www/html/storage/upload
