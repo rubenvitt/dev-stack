@@ -11,6 +11,9 @@ services:
       - DB_USER=${DB_USER}
       - DB_PASS=${DB_PASS}
       - DB_DATABASE=bookstackapp
+      - MAIL_USERNAME=apikey
+      - MAIL_PASSWORD=${MAIL_PASS}
+      - MAIL_HOST=smtp.sendgrid.net
     volumes:
       - app_data:/config
     ports:
