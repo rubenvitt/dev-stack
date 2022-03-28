@@ -10,7 +10,7 @@ services:
       - DATABASE_HOST=db
       - DATABASE_PORT=5432
       - DATABASE_NAME=strapi
-      - DATABASE_USER=${DB_USER}
+      - DATABASE_USERNAME=${DB_USER}
       - DATABASE_PASSWORD=${DB_PASS}
     ports:
       - '${PORT}:1337'
