@@ -12,6 +12,14 @@ services:
       - DB_HOST=db
       - DB_PASSWORD=${DB_PASS}
       - DB_USERNAME=${DB_USER}
+      - MAIL_MAILER=smtp
+      - MAIL_HOST=smtp.sendgrid.net
+      - MAIL_PORT=587
+      - MAIL_USERNAME=apikey
+      - MAIL_PASSWORD=${MAIL_PASS}
+      - MAIL_ENCRYPTION=tls
+      - MAIL_FROM_ADDRESS=${MAIL_FROM_ADDRESS}
+      - MAIL_FROM_NAME=${MAIL_FROM_NAME}
     restart: always
     volumes:
       - app:/var/www/html/storage
