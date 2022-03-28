@@ -22,6 +22,7 @@ services:
       - MAIL_PASSWORD=${MAIL_PASS}
       - MAIL_ENCRYPTION=tls
       - MAIL_FROM=${MAIL_FROM}
+      - TRUSTED_PROXIES=**
     ports:
       - '${PORT:-8080}:8080'
     restart: always
