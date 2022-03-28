@@ -22,7 +22,6 @@ services:
     image: "mariadb"
     environment:
       - MARIADB_RANDOM_ROOT_PASSWORD=yes
-      - TZ=Europe/London
       - MYSQL_DATABASE=bookstackapp
       - MYSQL_USER=${DB_USER}
       - MYSQL_PASSWORD=${DB_PASS}
