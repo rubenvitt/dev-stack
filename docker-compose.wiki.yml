@@ -14,7 +14,7 @@ services:
     volumes:
       - app_data:/config
     ports:
-      - "${PORT}:80"
+      - "${PORT:-80}:80"
     restart: always
     depends_on:
       - db

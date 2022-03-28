@@ -23,7 +23,7 @@ services:
       - MAIL_ENCRYPTION=tls
       - MAIL_FROM=${MAIL_FROM}
     ports:
-      - '${PORT}:8080'
+      - '${PORT:-8080}:8080'
     restart: always
     volumes:
       - app_uploads:/var/www/html/storage/upload
