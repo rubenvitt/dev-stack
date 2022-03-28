@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+  app:
+    image: 'monica'
+    ports:
+      - '${PORT}:80'
+    depends_on:
+      - db
+    environment:
+      - APP_KEY=${APP_KEY}
+      - DB_HOST=db
+      - DB_PASSWORD=${DB_PASS}
+      - DB_USERNAME=${DB_USER}
+    restart: always
+
+  db:
+    image: 'mysql'
+    environment:
+      - MYSQL_PASSWORD=${DB_PASS}
+      - MYSQL_USER=${DB_USER}
+      - MYSQL_RANDOM_ROOT_PASSWORD=true
+    restart: always
