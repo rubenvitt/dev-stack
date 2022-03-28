@@ -35,5 +35,5 @@ services:
       - data:/var/lib/postgresql/data/
 
 volumes:
-  app:
+  app_config:
   data:
