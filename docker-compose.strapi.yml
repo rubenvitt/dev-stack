@@ -11,12 +11,10 @@ services:
       NODE_ENV: production
       APP_KEYS: ${APP_KEYS}
       JWT_SECRET: ${JWT_SECRET}
+      SENDGRID_API_KEY: ${SENDGRID_API_KEY}
       MAIL_FROM: ${MAIL_FROM}
       MAIL_REPLY_TO: ${MAIL_REPLY_TO}
       MAIL_TEST_ADDRESS: ${MAIL_TEST_ADDRESS}
-      MAIL_PASS: ${MAIL_PASS}
-      MAIL_USER: apikey
-      MAIL_HOST: smtp.sendgrid.net
     volumes:
       - app_config:/opt/app/config
     ports:
