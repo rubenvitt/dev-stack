@@ -13,6 +13,8 @@ services:
       - DB_PASSWORD=${DB_PASS}
       - DB_USERNAME=${DB_USER}
     restart: always
+    volumes:
+      - app:/var/www/html/storage
 
   db:
     image: 'mysql'
@@ -21,3 +23,9 @@ services:
       - MYSQL_USER=${DB_USER}
       - MYSQL_RANDOM_ROOT_PASSWORD=true
     restart: always
+    volumes:
+      - db:/var/lib/mysql
+
+volumes:
+  app:
+  db:
