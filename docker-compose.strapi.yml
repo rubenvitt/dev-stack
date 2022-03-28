@@ -29,5 +29,5 @@ services:
       - db_data:/var/lib/mysql
 
 volumes:
-  app_uploads:
+  app:
   db_data:
