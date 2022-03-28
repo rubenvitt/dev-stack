@@ -15,6 +15,13 @@ services:
       - DB_PORT=3306
       - DB_USERNAME=${DB_USER}
       - MAPBOX_API_KEY=${MAPBOX_KEY}
+      - MAIL_MAILER=smtp
+      - MAIL_HOST=smtp.sendgrid.net
+      - MAIL_PORT=587
+      - MAIL_USERNAME=apikey
+      - MAIL_PASSWORD=${MAIL_PASS}
+      - MAIL_ENCRYPTION=tls
+      - MAIL_FROM=${MAIL_FROM}
     ports:
       - '${PORT}:8080'
     restart: always
