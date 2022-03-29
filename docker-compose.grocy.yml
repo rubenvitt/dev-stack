@@ -7,6 +7,8 @@ services:
       - PUID=1000
       - PGID=1000
       - TZ=Europe/London
+      - GROCY_CULTURE=de
+      - GROCY_CURRENCY=EUR
     volumes:
       - data:/config
     ports:
