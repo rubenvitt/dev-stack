@@ -18,7 +18,7 @@ services:
     expose:
       - '9000'
     environment:
-      GROCY_MODE: "production"
+      #GROCY_MODE: "production"
       GROCY_CULTURE: "de"
       MAX_UPLOAD: 50M
       PHP_MAX_FILE_UPLOAD: 200
