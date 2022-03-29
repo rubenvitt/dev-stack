@@ -2,7 +2,7 @@ version: '3'
 
 services:
   frontend:
-    image: "grocy/frontend"
+    image: "grocy/frontend:v3.2.0-1"
     depends_on:
       - backend
     ports:
@@ -13,7 +13,7 @@ services:
     volumes:
       - /var/log/nginx
   backend:
-    image: "grocy/backend"
+    image: "grocy/backend:v3.2.0-1"
     read_only: true
     environment:
       GROCY_MODE: "production"
