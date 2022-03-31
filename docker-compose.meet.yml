@@ -18,6 +18,9 @@ services:
       - POSTGRES_DB=${DB_NAME}
       - CALENDSO_ENCRYPTION_KEY=${ENCRYPTION_KEY}
       - JWT_SECRET=${JWT_SECRET}
+      - NODE_ENV=production
+      - NEXT_PUBLIC_APP_URL=${APP_URL}
+      - BASE_URL=${APP_URL}
     volumes:
       - db:/var/lib/postgresql/data
 
