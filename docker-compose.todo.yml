@@ -1,28 +1,45 @@
 version: '3'
 
 services:
-  app:
-    image: mattermost/focalboard
-    restart: always
+  db:
+    image: mariadb
+    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    environment:
+      MYSQL_RANDOM_ROOT_PASSWORD: "true"
+      MYSQL_USER: ${DB_USER}
+      MYSQL_PASSWORD: ${DB_PASS}
+      MYSQL_DATABASE: ${DB_NAME}
+    volumes:
+      - db_data:/var/lib/mysql
+    restart: unless-stopped
+  api:
+    image: vikunja/api
+    environment:
+      VIKUNJA_DATABASE_HOST: "db"
+      VIKUNJA_DATABASE_PASSWORD: "${DB_PASS}"
+      VIKUNJA_DATABASE_TYPE: "mysql"
+      VIKUNJA_DATABASE_USER: "${DB_USER}"
+      VIKUNJA_DATABASE_DATABASE: "${DB_NAME}"
+      VIKUNJA_SERVICE_FRONTENDURL: "${FRONTEND_URL}"
+      VIKUNJA_SERVICE_ENABLEREGISTRATION: "true"
+      VIKUNJA_SERVICE_TIMEZONE: "Europe/Berlin"
+      VIKUNJA_SERVICE_ENABLEUSERDELETION: "false"
+      VIKUNJA_MAILER_ENABLED: "false"
+    ports:
+      - "${API_PORT:-80}:3456"
+    volumes:
+      - api_files:/app/vikunja/files
     depends_on:
       - db
+    restart: unless-stopped
+  frontend:
+    image: vikunja/frontend
     ports:
-      - "${PORT:-8000}:8000"
+      - "${FRONTEND_PORT:-80}:80"
     environment:
-      VIRTUAL_HOST: "${HOST}"
-      VIRTUAL_PORT: "8000"
-      VIRTUAL_PROTO: "https"
-    volumes:
-      - "./todo/config.json:/opt/focalboard/config.json"
-  db:
-    image: postgres
-    restart: always
-    volumes:
-      - db:/var/lib/postgresql/data
-    environment:
-      POSTGRES_DB: "${DB_NAME}"
-      POSTGRES_USER: "${DB_USER}"
-      POSTGRES_PASSWORD: "${DB_PASS}"
+      VIKUNJA_API_URL: https://${API_DOMAIN}/api/v1
+    restart: unless-stopped
 
 volumes:
-  db:
+  db_data:
+  api_files:
