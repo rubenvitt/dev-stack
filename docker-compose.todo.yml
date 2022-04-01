@@ -26,10 +26,11 @@ services:
       VIKUNJA_SERVICE_ENABLEUSERDELETION: "false"
       VIKUNJA_MAILER_ENABLED: "true"
       VIKUNJA_MAILER_HOST: "smtp.sendgrid.net"
-      VIKUNJA_MAILER_PORT: "587"
+      VIKUNJA_MAILER_PORT: "465"
       VIKUNJA_MAILER_USER: "apikey"
       VIKUNJA_MAILER_PASSWORD: "${MAIL_PASS}"
       VIKUNJA_MAILER_FROMEMAIL: "${MAIL_FROM}"
+      VIKUNJA_MAILER_FORCESSL: "true"
     ports:
       - "${API_PORT:-80}:3456"
     volumes:
