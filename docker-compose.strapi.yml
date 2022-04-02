@@ -16,7 +16,7 @@ services:
       MAIL_REPLY_TO: ${MAIL_REPLY_TO}
       MAIL_TEST_ADDRESS: ${MAIL_TEST_ADDRESS}
     volumes:
-      - app:/opt/app/src/api
+      - app_data:/opt/app/src/api
       - app_config:/opt/app/config
     ports:
       - "${PORT:-1337}:1337"
@@ -34,6 +34,6 @@ services:
       - data:/var/lib/postgresql/data/
 
 volumes:
-  app:
+  app_data:
   app_config:
   data:
