@@ -16,7 +16,7 @@ services:
       MAIL_REPLY_TO: ${MAIL_REPLY_TO}
       MAIL_TEST_ADDRESS: ${MAIL_TEST_ADDRESS}
     volumes:
-      - app:/opt/app
+      - app:/opt/app/src/api
     ports:
       - "${PORT:-1337}:1337"
     depends_on:
