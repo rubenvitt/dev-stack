@@ -17,6 +17,7 @@ services:
       MAIL_TEST_ADDRESS: ${MAIL_TEST_ADDRESS}
     volumes:
       - app:/opt/app/src/api
+      - app_config:/opt/app/config
     ports:
       - "${PORT:-1337}:1337"
     depends_on:
@@ -34,4 +35,5 @@ services:
 
 volumes:
   app:
+  app_config:
   data:
