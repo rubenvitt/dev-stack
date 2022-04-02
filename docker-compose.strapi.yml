@@ -16,7 +16,6 @@ services:
       MAIL_REPLY_TO: ${MAIL_REPLY_TO}
       MAIL_TEST_ADDRESS: ${MAIL_TEST_ADDRESS}
     volumes:
-      - app_data:/opt/app/src/api
       - app_config:/opt/app/config
     ports:
       - "${PORT:-1337}:1337"
