@@ -33,5 +33,5 @@ services:
       - data:/var/lib/postgresql/data/
 
 volumes:
-  appπ:
+  app:
   data:
