@@ -10,3 +10,10 @@ services:
     volumes:
       - /var/run/docker.sock:/tmp/docker.sock:ro
       - ./proxy/certs:/etc/nginx/certs
+    networks:
+      - hosting-network
+
+networks:
+  hosting-network:
+    external:
+      name: hosting-network
